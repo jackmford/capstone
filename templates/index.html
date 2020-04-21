@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+	<title>Capstone</title>
+</head>
+<body>
+	<h1 align="center"> Canvas Assistant Sign-up </h1><br>
+	<h5 align="center"> Enter a five digit pin and your Canvas API Token </h5><br>
+	<form action="/db" method="POST">
+		<input id="id-tag" type="text" name="id" value="Pin"><br>
+		<input id="token-tag" type="text" name="token" value="Canvas Token"><br>
+		<input id="sub-btn" type="submit" value="submit"><br>
+	</form>
+</body>
