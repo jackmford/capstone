@@ -27,5 +27,11 @@ def db():
 		token = request.form.get('token')
 		print(request.form.get('id'))
 		print(request.form.get('token'))
-		send_db(identifier, token)
+		yn = root.child(identifier).get('token')
+		print(yn)
+		if 'None' in str(yn):
+			send_db(identifier, token)
+		else:
+			return 'ID Taken'
+
 		return 'Thanks for signing up!'
