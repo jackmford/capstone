@@ -7,4 +7,4 @@ firebase_admin.initialize_app(cred, {
 })
 #firebase_admin.initialize_app(cred)
 root = db.reference()
-print(root.child('users').get()['jack'])
+print(root.child('users').get()['jackf'])
