@@ -1,4 +1,6 @@
 import os
+import base64
+from Crypto.Cipher import AES
 from flask import abort, Flask, json, redirect,\
     render_template, request, Response, url_for, session, jsonify
 import firebase_admin
@@ -23,15 +25,20 @@ def hello_world():
 
 @app.route('/db', methods=['POST', 'GET'])
 def db():
+		obj = AES.new('This is a key123', AES.MODE_CFB, 'This is an IV456')
 		identifier = request.form.get('id')
 		token = request.form.get('token')
 		print(request.form.get('id'))
 		print(request.form.get('token'))
 		yn = root.child(identifier).get('token')
 		print(yn)
-		if 'None' in str(yn):
+		if 'None' in str(yn) and len(identifier) == 5:
+			#token = obj.encrypt(token)
+			#token = str(token)
 			send_db(identifier, token)
 		else:
+			if len(identifier) != 5:
+				return 'ID must be 5 digits'
 			return 'ID Taken'
 
 		return 'Thanks for signing up!'
